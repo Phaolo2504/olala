@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Game dành cho cậu!</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fffaf0; padding: 20px; text-align: center; }
+    .greeting, .question, .birthday-message, .ending { display: none; margin-top: 20px; }
+    .active { display: block; }
+    button { padding: 10px 20px; font-size: 16px; margin: 10px; cursor: pointer; border-radius: 8px; border: none; background: #ff69b4; color: white; }
+    textarea { width: 80%; padding: 10px; margin-top: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; }
+    .options { text-align: left; display: inline-block; background: #fff0f5; padding: 15px; border-radius: 10px; }
+    label { display: block; margin-bottom: 8px; font-size: 16px; }
+    .message-box, .greeting, .birthday-message, .ending {
+      background: #ffebf7; padding: 20px; border-radius: 15px; border: 2px solid #ff69b4;
+      font-size: 18px; font-weight: bold;
+    }
+    .message-box { color: green; }
+  </style>
+</head>
+<body>
+  <!-- Thêm nhạc nền từ YouTube (video được phát tự động và lặp lại) -->
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/p6EjUkQ3Ut0?autoplay=1&loop=1&playlist=p6EjUkQ3Ut0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <!-- Lời mở đầu -->
+  <div class="greeting active">
+    <h2>Game dành cho cậu!</h2>
+    <p>Mình là người mà chắc chắn cậu biết là ai rồi. Hôm nay mình xuất hiện để mời bạn tham gia một game nho nhỏ, mong cậu sẽ thích nó!</p>
+    <p>Lần đầu tiên mình nghiên cứu trò này nên rất mong cậu bỏ qua sai sót. Nhớ bật ghi màn hình nhé!</p>
+    <button onclick="next()">Bắt đầu</button>
+  </div>
+
+  <!-- Câu hỏi 1 -->
+  <div class="question">
+    <h3>Câu hỏi 1: Hôm nay là một ngày cực kỳ đặc biệt, đố cậu biết đó là ngày gì?</h3>
+    <div class="options">
+      <label><input type="radio" name="q1"> a) Ngày thứ năm</label>
+      <label><input type="radio" name="q1"> b) Ngày 10/4</label>
+      <label><input type="radio" name="q1"> c) Sinh nhật người đẹp nhất thế gian</label>
+      <label><input type="radio" name="q1"> d) Ngày mà 20 năm trước 1 công chúa ra đời</label>
+    </div>
+    <button onclick="showMessage('Happy Birthday Xoài!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 2 -->
+  <div class="question">
+    <h3>Câu hỏi 2: Ngày hôm nay có ý nghĩa gì đối với cậu?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Amazing! Good Job em!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 3 -->
+  <div class="question">
+    <h3>Câu hỏi 3: Sinh nhật đáng nhớ nhất của cậu là năm cậu bao nhiêu tuổi? Kể lại kỷ niệm đó nhé.</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Đúng là 1 kỷ niệm khó quên, tui sẽ nhớ cùng cậu!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 4 -->
+  <div class="question">
+    <h3>Câu hỏi 4: Ước mơ của cậu là gì? Cậu đã và sẽ làm gì để hướng tới ước mơ đó?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Tôi sẽ ủng hộ cậu.')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 5 -->
+  <div class="question">
+    <h3>Câu hỏi 5: Cậu có những dự tính, kế hoạch gì trong thời gian sắp tới?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Tui tin đó là những dự kiến khôn ngoan!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div><!-- Lời chúc sinh nhật -->
+  <div class="birthday-message">
+    <p>
+      Hôm nay là ngày sinh nhật cậu, tui chúc cậu luôn luôn xinh đẹp vui tươi, tuổi 20 sẽ là một cột mốc đáng nhớ trong cuộc đời cậu. 
+      Chúc cậu sẽ thành công trong mọi sự lựa chọn và luôn luôn hạnh phúc. Cậu sẽ là niềm tự hào của ông bà, bố mẹ, anh chị em, 
+      của bản thân cậu và cả tui nữa. Năng lượng tích cực sẽ tràn ngập trong cậu và cậu sẽ lan tỏa nó tới mọi người xung quanh. 
+      Tui tin cậu sẽ có thể cố gắng và hoàn thành ước mơ của cậu. Happy Birthday!
+    </p>
+    <button onclick="next()">Tiếp tục</button>
+  </div>
+
+  <!-- Câu hỏi 6 -->
+  <div class="question">
+    <h3>Câu hỏi 6: Sở thích của cậu là gì?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Quả thật cậu là con người thú vị với những sở thích vô cùng thú vị!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 7 -->
+  <div class="question">
+    <h3>Câu hỏi 7: Món ăn yêu thích của bạn là gì? Liệt kê vài món theo thứ tự.</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Tui sẽ thử hết mấy món đó, biết đâu chung sở thích hahaa!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 8 -->
+  <div class="question">
+    <h3>Câu hỏi 8: Đồ uống yêu thích của cậu là gì? Liệt kê vài loại nhé.</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Nếu cậu muốn uống, order tui sẽ mua cho!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 9 -->
+  <div class="question">
+    <h3>Câu hỏi 9: Cậu sợ con gì nhất? Kể tên các loài cậu sợ nhé.</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Tui sẽ bảo vệ cậu, mấy con đó không có cửa với tui!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 10 -->
+  <div class="question">
+    <h3>Câu hỏi 10: Cậu ghét điều gì nhất?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Cảm ơn cậu đã trả lời, bây giờ là phần ngoài lề!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 11 -->
+  <div class="question">
+    <h3>Câu hỏi 11: Bạn thấy tui là con người như thế nào?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Tui khá tò mò trước khi nhận được câu trả lời đó.')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Câu hỏi 12 -->
+  <div class="question">
+    <h3>Câu hỏi 12: Có tui có điểm nào thu hút được cậu không nào?</h3>
+    <textarea></textarea>
+    <button onclick="showMessage('Còn điểm nào của tui cũng thu hút cậu hihi!')">Trả lời</button>
+    <div class="message-box"></div>
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- Lời kết -->
+  <div class="ending">
+    <h3>🎉 Chúc mừng cậu đã chiến thắng trò chơi với số điểm tuyệt đối! 🎉</h3>
+<p>Cảm ơn cậu đã tham gia trò chơi, chúc cậu có những giây phút thư giãn và tràn ngập tiếng cười! </p>
+    <p>Cậu quá đỉnh! Chúc mừng sinh nhật Xoài – mọi điều tốt đẹp sẽ đến với cậu. Good bye!</p>
+  </div>
+
+  <script>
+    let current = 0;
+    const steps = document.querySelectorAll('.greeting, .question, .birthday-message, .ending');
+
+    function next() {
+      steps[current].classList.remove('active');
+      current++;
+      if (current < steps.length) {
+        steps[current].classList.add('active');
+      }
+    }
+
+    function showMessage(msg) {
+      // Lấy message-box trong section hiện tại
+      const box = steps[current].querySelector('.message-box');
+      if (box) box.innerText = msg;
+    }
+  </script>
+</body>
+</html>
